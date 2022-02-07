@@ -1,0 +1,58 @@
+{% extends 'hadir/listkehadiran.html' %}
+{% block content %}
+<center>
+	<h2 class="display-3" style="background-color:#008080;color:#fff;">Form Presensi</h2>
+	<form method='POST' enctype="multipart/form-data">
+		{% csrf_token %}
+		<table class='w-50 table table-light' style="border-radius:10px;background-color:#99ffcc;">
+			{% for field in upload_form %}
+			<tr>
+				<th>{{field.label}}</th>
+				<td>{{ field }}</td>
+
+
+			</tr>
+			{% endfor %}
+			<th>Lokasi</th>
+			<td>Jakarta</td>
+			<tr>
+				<th>Longitude </th>
+				<!-- <td>{{ lng }}</td> -->
+				<td>106.86886090646962</td>
+			</tr>
+			<tr>
+				<th>Latitude</th>
+				<!-- <td>{{ lat }}</td> -->
+				<td>-6.245284601263033</td>
+			</tr>
+			<tr>
+				<th>MAC Address</th>
+				<td>{{ mac }}</td>
+			</tr>
+
+			<th>Waktu Absen</th>
+			<!-- <td>Jan. 1, 2022, 2 a.m.</td> -->
+			<td>{{ tgl }}, {{ time }}</td>
+			<tr>
+
+		</table>
+		<button type="submit" class="btn btn-lg btn-success">Submit</button>
+	</form>
+</center>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> IPB PRESENSI</title>
+
+</head>
+<body>
+	<strong> List Of All Country</strong>
+	{% for i in response%}
+	{{i.country}}
+	{%endfor%}
+</body>
+</html> -->
